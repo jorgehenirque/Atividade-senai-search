@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENAI | Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo-senai.favicon-48x48.ico">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- Página de Login -->
+    <div id="login-page" class="page active">
+        <div class="profile-upload">
+            <img id="preview" src="https://via.placeholder.com/100" class="profile-pic" alt="Foto de Perfil">
+            <input type="file" id="foto-perfil" accept="image/*" onchange="carregarImagem(event)">
+        </div>
+        <h2>Login</h2>
+        <input type="text" id="login-nome" placeholder="Nome">
+        <input type="password" id="login-senha" placeholder="Senha">
+        <button onclick="fazerLogin()">Login</button>
+        <p><a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
+    </div>
+
+    <!-- Página de Cadastro -->
+    <div id="cadastro-page" class="page">
+        <h2>Cadastro</h2>
+        <input type="text" id="cadastro-nome" placeholder="Nome completo">
+        <input type="password" id="cadastro-senha" placeholder="Senha">
+        <input type="text" id="cadastro-cpf" placeholder="CPF">
+        <input type="text" id="cadastro-telefone" placeholder="Telefone">
+        <input type="text" id="cadastro-endereco" placeholder="Endereço">
+        <button onclick="fazerCadastro()">Cadastrar</button>
+    </div>
+
+
+    <!-- Página Principal -->
+    <div id="main-page" class="page">
+        <header class="main-header">
+            <img src="img/logo-senai.png" alt="Logo SENAI" class="logo">
+            <h1 class="title">SENAI Search</h1>
+        </header>
+        <div id="usuario-info">
+            <h3>Dados do Usuário</h3>
+            <p><strong>Nome:</strong> <span id="info-nome"></span></p>
+            <p><strong>CPF:</strong> <span class="sensitive" id="info-cpf"></span></p>
+            <p><strong>Telefone:</strong> <span class="sensitive" id="info-telefone"></span></p>
+            <p><strong>Endereço:</strong> <span class="sensitive" id="info-endereco"></span></p>
+            <button onclick="toggleSensivel()">Mostrar/Ocultar Informações Sensíveis</button>
+        </div>
+
+
+        <main>
+            <div class="form-com-botao">
+                <section class="form-section">
+                    <h2>Cadastrar Novo Item</h2>
+                    <input type="text" id="item-nome" placeholder="Nome">
+                    <input type="text" id="item-modelo" placeholder="Modelo">
+                    <input type="date" id="item-data" placeholder="Data">
+                    <input type="text" id="item-desc" placeholder="Descrição do Item">
+                    <button onclick="adicionarItem()">Cadastrar Item</button>
+                </section>
+
+                <button class="botao-consultar-produtos" onclick="abrirModal()">Consultar Produtos</button>
+            </div>
+
+            <section class="itens-lista" id="lista-itens">
+                <!-- Itens adicionados serão inseridos aqui -->
+            </section>
+
+            <section class="resumo" id="resumo-geral">
+                <h3>Resumo</h3>
+                <p id="resumo-texto">Nenhum item cadastrado ainda.</p>
+            </section>
+
+            <!-- Modal de Consulta -->
+            <div id="modal-consulta" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                    <h2>Produtos Cadastrados</h2>
+                    <div id="tabela-produtos">
+                        <!-- Conteúdo da tabela é gerado dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
