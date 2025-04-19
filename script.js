@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    if (!usuario) {
+        document.getElementById('foto-container').style.display = 'none';
+    }
+});
+
 function mostrarCadastro() {
     document.getElementById('login-page').classList.remove('active');
     document.getElementById('cadastro-page').classList.add('active');
@@ -25,6 +32,9 @@ function fazerCadastro() {
     } else {
         alert('Preencha todos os campos.');
     }
+    document.getElementById('foto-container').style.display = 'block';
+    document.getElementById('plus-icon').style.display = 'flex';
+
 }
 
 
@@ -99,9 +109,17 @@ function atualizarResumo() {
 }
 
 function carregarImagem(event) {
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    if (!usuario) {
+        alert("Você precisa se cadastrar primeiro para enviar uma imagem de perfil.");
+        event.target.value = ''; // limpa o input
+        return;
+    }
+
     const preview = document.getElementById('preview');
     preview.src = URL.createObjectURL(event.target.files[0]);
 }
+
 let dadosVisiveis = false;
 
 function toggleSensivel() {

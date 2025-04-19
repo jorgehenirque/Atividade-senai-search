@@ -14,17 +14,37 @@
 
 <body>
     <!-- Página de Login -->
+    <!-- Página de Login -->
     <div id="login-page" class="page active">
-        <div class="profile-upload">
-            <img id="preview" src="https://via.placeholder.com/100" class="profile-pic" alt="Foto de Perfil">
-            <input type="file" id="foto-perfil" accept="image/*" onchange="carregarImagem(event)">
+        <div class="login-container">
+
+            <!-- Logo SENAI à esquerda -->
+            <div class="login-logo">
+                <img src="img/logo-senai.favicon-48x48.png" alt="Logo SENAI">
+            </div>
+
+            <!-- Formulário + Foto -->
+            <div class="login-form">
+
+                <!-- Foto de perfil -->
+                <div class="profile-upload" id="foto-container">
+                    <label for="foto-perfil" class="custom-upload">
+                        <img id="preview" src="https://via.placeholder.com/100" class="profile-pic" alt="">
+                        <span id="plus-icon" style="display: none;" class="plus-icon">+</span>
+                    </label>
+                    <input type="file" id="foto-perfil" accept="image/*" onchange="carregarImagem(event)">
+                </div>
+
+                <!-- Formulário de Login -->
+                <h2>Login</h2>
+                <input type="text" id="login-nome" placeholder="Nome">
+                <input type="password" id="login-senha" placeholder="Senha">
+                <button onclick="fazerLogin()">Login</button>
+                <p>Não tem cadastro ? <a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
+            </div>
         </div>
-        <h2>Login</h2>
-        <input type="text" id="login-nome" placeholder="Nome">
-        <input type="password" id="login-senha" placeholder="Senha">
-        <button onclick="fazerLogin()">Login</button>
-        <p><a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
     </div>
+
 
     <!-- Página de Cadastro -->
     <div id="cadastro-page" class="page">
@@ -41,7 +61,7 @@
     <!-- Página Principal -->
     <div id="main-page" class="page">
         <header class="main-header">
-            <img src="img/logo-senai.png" alt="Logo SENAI" class="logo">
+            <img src="img/logo-senai.favicon-48x48.png" alt="Logo SENAI" class="logo">
             <h1 class="title">SENAI Search</h1>
         </header>
         <div id="usuario-info">
@@ -58,7 +78,7 @@
             <div class="form-com-botao">
                 <section class="form-section">
                     <h2>Cadastrar Novo Item</h2>
-                    <input type="text" id="item-nome" placeholder="Nome">
+                    <input type="text" id="item-nome" placeholder="Nome do Item">
                     <input type="text" id="item-modelo" placeholder="Modelo">
                     <input type="date" id="item-data" placeholder="Data">
                     <input type="text" id="item-desc" placeholder="Descrição do Item">
@@ -90,7 +110,9 @@
         </main>
 
     </div>
-
+    <footer class="footer">
+        <p>© 2025 SENAI - Todos os direitos reservados.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 
